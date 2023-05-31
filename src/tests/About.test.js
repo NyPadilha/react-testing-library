@@ -1,17 +1,13 @@
 import { screen } from '@testing-library/react';
-import About from '../pages/About';
+import { About } from '../pages';
 import renderWithRouter from '../renderWithRouter';
 
 describe('Component <About.js /> test', () => {
-  //   it('Teste se a página contém as informações sobre a Pokédex;', () => {
-  //   });
   it('Teste se a página contém um heading h2 com o texto About Pokédex', () => {
     renderWithRouter(<About />);
     const about = screen.getByRole('heading', { level: 2 });
     expect(about).toHaveTextContent('About Pokédex');
   });
-  //   it('Teste se a página contém dois parágrafos com texto sobre a Pokédex;', () => {
-  //   });
   it('Teste se a página contém a imagem da Pokédex', () => {
     renderWithRouter(<About />);
     const { src } = screen.getByRole('img');
